@@ -35,9 +35,3 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Deploy to Development Namespace
-      - name: Deploy to Kubernetes Development Namespace
-        run: |
-          helm upgrade --install dev-release ./devops-case-study-chart \
-            -f ./devops-case-study-chart/values-development.yaml \
-            --namespace development
