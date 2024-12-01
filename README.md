@@ -45,6 +45,7 @@ Password: Fetch using kubectl -n argocd get secret argocd-initial-admin-secret -
 - In development branch, go to devops-case-study-chart->values.yaml file and change image source to your case
   image:repository: your_docker_hub_username/your_docker_hub_repo
 - Create pull request to merge development branch with main branch without closing development branch. Please do not close the branch.
+  If you forked from my repository, please be careful not to send the request to my repository's main branch. Send it to your repository's main branch.
 - Wait for the github actions to complete successfully. Then, check your docker hub repository for newly created images.
 
 Go to ArgoCD UI on your browser
@@ -79,3 +80,5 @@ You may test the application on Postman with the following endpoints:
 Last method is intentionally left as commanded block of code. You can remove '//' and update the github repo to test the workflow and also check
 how ArgoCD updates its state.
  
+In case of any problem, please contact to me via mail(gekoline.29@hotmail.com).
+Thank you.
