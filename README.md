@@ -34,26 +34,32 @@ Username: admin
 Password: Fetch using kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 ---Deploy the Application---
-Create namespaces "development" and "production" for your environments
-Namespaces are harcoded. Therefore, please keep them as specified.
-Open cmd
-kubectl create namespace development
-kubectl create namespace production
+- Go to my repository(https://github.com/galtiparmak/devopscasestudy) then fork or clone my repository to your github repository.
+- Create 'development' branch. Name must be the same as I provided for Github Action workflow.
+- Click 'Actions' on the upperbar and enable the actions.
+- Open docker hub and create image repository.
+- Go to Your Github Repository->Settings->Secrets And Variables->Actions->New Repository Secret.
+- Add your docker hub username as DOCKER_USERNAME and password as DOCKER_PASSWORD. Please put the same names as I provide.
+- Change branch to development then go to .github->workflows for both development.yaml and production.yaml files, adjust the following line for your case image:    
+  your_docker_hub_username/your_docker_hub_repo
+- In development branch, go to devops-case-study-chart->values.yaml file and change image source to your case
+  image:repository: your_docker_hub_username/your_docker_hub_repo
+- Create pull request to merge development branch with main branch without closing development branch. Please do not close the branch.
+- Wait for the github actions to complete successfully. Then, check your docker hub repository for newly created images.
 
 Go to ArgoCD UI on your browser
 - Create new app
  - Set Application Name as you wish
  - Set Project Name as default
  - Set SYNC POLICY as manual or automatic
- - Set Repository URL as https://github.com/galtiparmak/devopscasestudy
+ - Mark Autocreate Namespace box in Sync Options
+ - Set Repository URL as your Github Repository URL
  - Set Revision:
     - To 'development' branch if you are creating the app for the development environment
     - To 'main' branch if you are creating the app for the production environment
  - Set Path as devops-case-study-chart
  - Set Cluster URL to your cluster url. Most probably https://kubernetes.default.svc
- - Set Namespace:
-    - To 'development' if you are creating the app for the development environment
-    - To 'production' if you are creating the app for the production environment
+ - Set Namespaces
  - In the Helm section set Values Files:
     - To 'values-development.yaml' file if you are creating the app for the development environment
     - To 'values-production.yaml' file if you are creating the app for the production environment
