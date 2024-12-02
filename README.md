@@ -27,7 +27,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 Access the ArgoCD UI:
 kubectl port-forward service/argocd-server -n argocd 8081:443
-Open your browser and navigate to https://localhost:8080
+Open your browser and navigate to https://localhost:8081
 
 Log in to ArgoCD:
 Username: admin
