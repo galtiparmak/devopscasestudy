@@ -34,6 +34,8 @@ Username: admin
 Password: Fetch using kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 ---Deploy the Application---
+Note: Following the instructions below may require considerable effort and time. To streamline the process, I can add you as a contributor to this repository, granting you write and pull request access. This approach might save you some time, as you can directly work on my setup. If you’re interested, please feel free to reach out to me by providing your GitHub username via email(gekoline.29@hotmail.com).
+
 - Go to my repository(https://github.com/galtiparmak/devopscasestudy) then fork or clone my repository to your github repository.
 - Create 'development' branch. Name must be the same as I provided for Github Action workflow.
 - Click 'Actions' on the upperbar and enable the actions.
