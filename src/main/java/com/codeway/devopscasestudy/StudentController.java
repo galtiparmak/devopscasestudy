@@ -65,14 +65,14 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
 
-    //@PutMapping("/changeName/{id}/{name}")
-    //public ResponseEntity<Student> changeName(@PathVariable Long id,
-    //                                          @PathVariable String name) {
-    //    Student student = studentService.changeName(id, name);
-    //    if (student == null) {
-    //        return ResponseEntity.notFound().build();
-    //    }
-    //    return ResponseEntity.ok(student);
-    //}
+    @PutMapping("/changeName/{id}/{name}")
+    public ResponseEntity<Student> changeName(@PathVariable Long id,
+                                              @PathVariable String name) {
+        Student student = studentService.changeName(id, name);
+        if (student == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(student);
+    }
 }
 
