@@ -3,7 +3,7 @@ mysql:
     username: produser
     password: prodpassword
     database: proddatabase
-replicaCount: 3
+replicaCount: 2
 resources:
   limits:
     cpu: 1
